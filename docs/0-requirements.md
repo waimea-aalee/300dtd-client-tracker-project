@@ -2,17 +2,16 @@
 
 ## Identified Problem or Need
 
-Replace this text with a clearly stated problem or need that exists that your project will attempt to solve / fulfil.
-
+My step dad has a problem I will attempt to solve. He is a builder and he has struggle with keeping track of the jobs he's done for clients to help with billinig the correct people the correct amount.
 
 ## End-User Requirements
 
-Replace this text with a description of your typical end-users and their specific needs / expectations / requirements.
-
+My step dad is my end-user and I will be talking to during the project. He would need a large font that's easy to read and a simple to use/straight forward layout.
 
 ## Proposed Solution
 
 Replace this text with a brief statement about the system that you intend to create, including the key functionality it should have.
+I intend to create a system that shows clients and the jobs 
 
 
 ---
