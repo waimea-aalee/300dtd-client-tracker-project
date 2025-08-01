@@ -42,9 +42,7 @@ This implication is relevant to my project because the website I am creating sho
 
 ### Impact / Considerations
 
-I will need to consider who this is made for so it's easy for the end user to work out, this implication 
-
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will need to consider who this is made for so it's easy for the end user to work out. The project will be impacted by this implication because if it is confusing to use it would be frustrating to the end user and they would not want to use it.
 
 
 
@@ -58,21 +56,21 @@ This implication is relevant to my project because the aesthetics of the website
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will need to think about correctly grouping elements and making the site look appealing to the end user. This impacts it by making a layout less confusing for an end user so they will like it and if it's appealing they'll enjoy using it.
 
 
 
-## NAME OF IMPLICATION 4
+## End-user
 
-Replace this text with a clear explanation of what the implication means.
+This implication is connected to the specific needs of the end user(s). The needs could be about age, education, interests, etc. It should be appealing to the correct  people.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+This implication is relevant to this project because I am targeting specific users, in this case for builders so I need to know about my end users specific needs.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will need to consider getting regular feedback from my end user, this implication impacts the project because if I didn't get feedback about what the end user wants, they most likely will not use it as it doesn't fit their needs.
 
 
 
@@ -93,9 +91,13 @@ Replace this text with an explanation of what you will need to consider moving f
 
 # User Experience (UX) Principles
 
-## NAME OF UX PRINCIPLE 1
+## Desirable
+
+
 
 Replace this text with a clear explanation of what the principle means.
+
+Imagery used, the identity of the product / brand, and other design elements, should all be used to evoke emotion and appreciation of the product / system.
 
 ### Relevance to the System
 
