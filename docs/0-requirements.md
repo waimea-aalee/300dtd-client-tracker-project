@@ -93,11 +93,7 @@ Replace this text with an explanation of what you will need to consider moving f
 
 ## Desirable
 
-
-
-Replace this text with a clear explanation of what the principle means.
-
-Imagery used, the identity of the product / brand, and other design elements, should all be used to evoke emotion and appreciation of the product / system.
+All the design elements, like imagery, should be used to bring the end user appreciation and emotion to the system
 
 ### Relevance to the System
 
@@ -108,9 +104,9 @@ Replace this text with an explanation of why the principle is relevant to this p
 Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
 
 
-## NAME OF UX PRINCIPLE 2
+## Findable
 
-Replace this text with a clear explanation of what the principle means.
+The system should be easy to navigate so the end user can find the content or function they need to with no problem
 
 ### Relevance to the System
 
@@ -121,9 +117,9 @@ Replace this text with an explanation of why the principle is relevant to this p
 Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
 
 
-## NAME OF UX PRINCIPLE 3
+## Findable
 
-Replace this text with a clear explanation of what the principle means.
+The system should be easy to navigate. End users should easily be able to find the function or content they need
 
 ### Relevance to the System
 
