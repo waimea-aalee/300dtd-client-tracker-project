@@ -12,16 +12,18 @@ Develop a prototype that simulates the key functionality of the system, then tes
 
 ## Initial Database Design
 
-Replace this text with notes regarding the DB design.
+This is the initial design for the database, there's 3 linked tables; users so people can login, which have multiple clients, then the jobs for that specific client with different data for the clients and jobs.
 
-![SCREENSHOT OF DB DESIGN](screenshots/example.png)
+![SCREENSHOT OF DB DESIGN](screenshots/dbdesign_1.png)
 
 
 ### Required Data Input
 
-Replace this text with a description of what data will be input, and where / how it will be obtained.
+The end user will input data about the clients and the jobs that are in progress once they have created an account and logged in. There is a checkbox to tick whether the client has been billed for a job and if it has been paid for.
 
 ### Required Data Output
+
+The system will output data
 
 Replace this text with a description of the outputs for the system - what types of data will be displayed?
 

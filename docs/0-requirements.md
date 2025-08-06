@@ -91,11 +91,13 @@ Replace this text with an explanation of what you will need to consider moving f
 
 # User Experience (UX) Principles
 
-## Desirable
+## Useful
 
-All the design elements, like imagery, should be used to bring the end user appreciation and emotion to the system
+The system should be useful, and it should fulfill a real need for a group of end users
 
 ### Relevance to the System
+
+This principle is relevant to this project because 
 
 Replace this text with an explanation of why the principle is relevant to this particular project.
 
@@ -110,16 +112,16 @@ The system should be easy to navigate so the end user can find the content or fu
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the principle is relevant to this particular project.
+This principle is relevant to this project because it should be easy to navigate especially for my end user who is not very familiar with technology.
 
 ### Impact / Considerations
 
 Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
 
 
-## Findable
+## Usable
 
-The system should be easy to navigate. End users should easily be able to find the function or content they need
+The system should be easy to  use for the intended end user, however, good usability on its own is not sufficient
 
 ### Relevance to the System
 
