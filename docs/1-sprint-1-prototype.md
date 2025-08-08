@@ -28,9 +28,9 @@ The system will output in multiple different ways.
 - A list of jobs for the clients
 - Details of job and clients (e.g. client phone number)
 
-Replace this text with a description of the outputs for the system - what types of data will be displayed?
-
 ### Required Data Processing
+
+
 
 Replace this text with a description of how the data will be processed to achieve the desired output(s) - any processes / formulae?
 
@@ -43,7 +43,7 @@ The first stage of prototyping was to explore how the UI might 'flow' between st
 
 This Figma demo shows the initial design for the UI 'flow':
 
-**FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT**
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="500" height="600" src="https://embed.figma.com/proto/Q9xEITd8R42lUy8kyq2HNl/Client-Tracker-V1?scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=3-2&starting-point-node-id=3%3A2&embed-host=share" allowfullscreen></iframe>
 
 ### Testing
 
