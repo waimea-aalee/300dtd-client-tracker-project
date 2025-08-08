@@ -97,11 +97,11 @@ The system should be useful, and it should fulfill a real need for a group of en
 
 ### Relevance to the System
 
-This principle is relevant to this project because 
-
-Replace this text with an explanation of why the principle is relevant to this particular project.
+This principle is relevant to this project because if it is not useful or not fulfilling a need, it will not be used and have no purpose making it useless
 
 ### Impact / Considerations
+
+Moving forward I will need to consider the need of the end user,
 
 Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
 
@@ -116,7 +116,7 @@ This principle is relevant to this project because it should be easy to navigate
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
+I will need to consider how easy everything is to use/find so it is easy for my end user. If it's difficult it will impact the end user they may get frustrated and get fed up by the site
 
 
 ## Usable
@@ -125,9 +125,9 @@ The system should be easy to  use for the intended end user, however, good usabi
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the principle is relevant to this particular project.
+This principle is relevant to my project because it should be easy to use, if it is confusing it will be frustrating to my end user or anyone using the site
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
+I will  need to consider while moving forward how easy this is to use, the placement of buttons and any icons looking familiar (e.g a house for home button)
 

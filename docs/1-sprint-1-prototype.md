@@ -23,7 +23,10 @@ The end user will input data about the clients and the jobs that are in progress
 
 ### Required Data Output
 
-The system will output data
+The system will output in multiple different ways.
+- A list of the clients
+- A list of jobs for the clients
+- Details of job and clients (e.g. client phone number)
 
 Replace this text with a description of the outputs for the system - what types of data will be displayed?
 
