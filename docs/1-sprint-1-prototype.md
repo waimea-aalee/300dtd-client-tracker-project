@@ -17,6 +17,7 @@ This is the initial design for the database, there's 3 linked tables; users so p
 ![SCREENSHOT OF DB DESIGN](screenshots/dbdesign_1.png)
 
 
+
 ### Required Data Input
 
 The end user will input data about the clients and the jobs that are in progress once they have created an account and logged in. There is a checkbox to tick whether the client has been billed for a job and if it has been paid for.

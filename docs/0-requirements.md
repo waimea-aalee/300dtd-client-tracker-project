@@ -129,5 +129,5 @@ This principle is relevant to my project because it should be easy to use, if it
 
 ### Impact / Considerations
 
-I will  need to consider while moving forward how easy this is to use, the placement of buttons and any icons looking familiar (e.g a house for home button)
+I will need to consider while moving forward how easy this is to use, the placement of buttons and any icons looking familiar (e.g a house for home button)
 
