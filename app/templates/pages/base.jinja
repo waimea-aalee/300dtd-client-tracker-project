@@ -44,13 +44,9 @@
 
                 {% endif %}
 
-                <li><a href="/">Home</a></li>
-                <li><a href="/things">Things</a></li>
-                <li><a href="/about">About</a></li>
-
                 {% if session.user_id %}
 
-                    <li><a href="/logout">Logout</a></li>
+                    <a href="/logout" role="button">Log Out</a>
 
                 {% else %}
 

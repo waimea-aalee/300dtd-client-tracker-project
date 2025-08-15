@@ -17,7 +17,19 @@
 
 {% block content %}
 
-    <h1>Welcome</h1>
+      {% if session.user_id %}
+
+            <h1>Clients</h1>
+
+        <article>
+                    
+
+                    
+        </article>
+
+        {% else %}
+
+            <h1>Welcome</h1>
 
      <article>
 
@@ -51,6 +63,6 @@
 
     </article>
 
+    {% endif %}
 
 {% endblock %}
-
