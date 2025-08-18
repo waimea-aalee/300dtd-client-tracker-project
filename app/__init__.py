@@ -43,6 +43,28 @@ def index():
 def about():
     return render_template("pages/about.jinja")
 
+#-----------------------------------------------------------
+# Clients page route - Show all the clients
+#-----------------------------------------------------------
+@app.get("/clients/")
+def show_all_clients():
+    with connect_db() as client:
+        # Get all the things from the DB
+        sql = """
+            SELECT clients.name
+
+            FROM clients
+            JOIN users ON clients.user_id = users.id
+
+            ORDER BY clients.name ASC
+        """
+        params=[]
+        result = client.execute(sql, params)
+        clients = result.rows
+
+        # And show them on the page
+        return render_template("pages/things.jinja", clients=clients)
+
 
 #-----------------------------------------------------------
 # Things page route - Show all the things, and new thing form

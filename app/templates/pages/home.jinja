@@ -23,9 +23,25 @@
 
         <article>
                     
+            <ul>
+                {% for client in clients %}
 
+                    <li>
+                        <a href="/client/{{ client.id }}">
+                            <strong>{{ client.name }}</strong>
+                        </a>
+                    </li>
+
+                {% else %}
+
+                    <p>None!</p>
+
+                {% endfor %}
+            </ul>
                     
         </article>
+
+        <a href="/add_client" role="button">Add Client</a>
 
         {% else %}
 
