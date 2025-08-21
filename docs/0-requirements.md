@@ -101,9 +101,8 @@ This principle is relevant to this project because if it is not useful or not fu
 
 ### Impact / Considerations
 
-Moving forward I will need to consider the need of the end user,
+Moving forward I will need to consider the need of the end user, the usefulness impacts the project because if it is not useful or not a real need nobody will have a need  for it and it will not be used
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
 
 
 ## Findable
