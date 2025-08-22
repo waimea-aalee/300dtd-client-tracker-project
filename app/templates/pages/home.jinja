@@ -26,11 +26,9 @@
             <ul>
                 {% for client in clients %}
 
-                    <li>
-                        <a href="/client/{{ client.id }}">
-                            <strong>{{ client.name }}</strong>
-                        </a>
-                    </li>
+                    
+                    <h3>{{ client.name }}</h3>
+                    
 
                 {% else %}
 
@@ -41,7 +39,7 @@
                     
         </article>
 
-        <a href="/add_client" role="button">Add Client</a>
+        <a href="/addclient" role="button">Add a Client</a>
 
         {% else %}
 

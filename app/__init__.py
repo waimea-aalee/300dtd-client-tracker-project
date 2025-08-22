@@ -69,26 +69,26 @@ def show_all_clients():
 #-----------------------------------------------------------
 # Things page route - Show all the things, and new thing form
 #-----------------------------------------------------------
-@app.get("/things/")
-def show_all_things():
-    with connect_db() as client:
-        # Get all the things from the DB
-        sql = """
-            SELECT things.id,
-                   things.name,
-                   users.name AS owner
+# @app.get("/things/")
+# def show_all_things():
+#     with connect_db() as client:
+#         # Get all the things from the DB
+#         sql = """
+#             SELECT things.id,
+#                    things.name,
+#                    users.name AS owner
 
-            FROM things
-            JOIN users ON things.user_id = users.id
+#             FROM things
+#             JOIN users ON things.user_id = users.id
 
-            ORDER BY things.name ASC
-        """
-        params=[]
-        result = client.execute(sql, params)
-        things = result.rows
+#             ORDER BY things.name ASC
+#         """
+#         params=[]
+#         result = client.execute(sql, params)
+#         things = result.rows
 
-        # And show them on the page
-        return render_template("pages/things.jinja", things=things)
+#         # And show them on the page
+#         return render_template("pages/things.jinja", things=things)
 
 
 #-----------------------------------------------------------
@@ -171,12 +171,7 @@ def delete_a_thing(id):
         # Go back to the home page
         flash("Thing deleted", "success")
         return redirect("/things")
-
-
-
-
-
-
+    
 
 #-----------------------------------------------------------
 # User registration form route
