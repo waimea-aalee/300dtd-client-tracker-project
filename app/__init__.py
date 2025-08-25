@@ -46,24 +46,24 @@ def about():
 #-----------------------------------------------------------
 # Clients page route - Show all the clients
 #-----------------------------------------------------------
-@app.get("/clients/")
+@app.get("/")
 def show_all_clients():
     with connect_db() as client:
         # Get all the things from the DB
         sql = """
-            SELECT clients.name
-
+            SELECT clients.name,
+                   clients.phone,
+                   clients.address
             FROM clients
             JOIN users ON clients.user_id = users.id
-
-            ORDER BY clients.name ASC
+            WHERE users.id = ?;
         """
         params=[]
         result = client.execute(sql, params)
         clients = result.rows
 
         # And show them on the page
-        return render_template("pages/things.jinja", clients=clients)
+        return render_template("pages/home.jinja", clients=clients)
 
 
 #-----------------------------------------------------------
