@@ -1,6 +1,6 @@
 #===========================================================
-# YOUR PROJECT TITLE HERE
-# YOUR NAME HERE
+# Client Tracker
+# Azaria Lee
 #-----------------------------------------------------------
 # BRIEF DESCRIPTION OF YOUR PROJECT HERE
 #===========================================================
@@ -27,13 +27,41 @@ init_logging(app)   # Log requests
 init_error(app)     # Handle errors and exceptions
 init_datetime(app)  # Handle UTC dates in timestamps
 
-
 #-----------------------------------------------------------
 # Home page route
 #-----------------------------------------------------------
 @app.get("/")
 def index():
-    return render_template("pages/home.jinja")
+
+    if "logged_in" in session:
+        user_id = session["user_id"]
+
+        with connect_db() as client:
+            # Get all the things from the DB
+            sql = """
+            SELECT clients.name,
+                   clients.phone,
+                   clients.address
+            FROM clients
+            JOIN users ON clients.user_id = users.id
+            WHERE users.id = ?;
+            """
+            params=[user_id]
+            result = client.execute(sql, params)
+            clients = result.rows
+
+            # And show them on the page
+            return render_template("pages/home.jinja", clients=clients)
+    else:
+        return render_template("pages/home.jinja")
+
+
+#-----------------------------------------------------------
+# Home page route
+#-----------------------------------------------------------
+# @app.get("/")
+# def index():
+#     return render_template("pages/home.jinja")
 
 
 #-----------------------------------------------------------
@@ -42,28 +70,6 @@ def index():
 @app.get("/about/")
 def about():
     return render_template("pages/about.jinja")
-
-#-----------------------------------------------------------
-# Clients page route - Show all the clients
-#-----------------------------------------------------------
-@app.get("/")
-def show_all_clients():
-    with connect_db() as client:
-        # Get all the things from the DB
-        sql = """
-            SELECT clients.name,
-                   clients.phone,
-                   clients.address
-            FROM clients
-            JOIN users ON clients.user_id = users.id
-            WHERE users.id = ?;
-        """
-        params=[]
-        result = client.execute(sql, params)
-        clients = result.rows
-
-        # And show them on the page
-        return render_template("pages/home.jinja", clients=clients)
 
 
 #-----------------------------------------------------------

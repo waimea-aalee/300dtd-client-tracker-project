@@ -27,7 +27,8 @@
                 {% for client in clients %}
 
                     
-                    <h3>{{ client.name }}</h3>
+                    <p>{{ client.name }} {{ client.phone }} {{ client.address }}</p>
+                    
                     
 
                 {% else %}
@@ -39,7 +40,7 @@
                     
         </article>
 
-        <a href="/addclient" role="button">Add a Client</a>
+        <a href="/add-client" role="button">Add a Client</a>
 
         {% else %}
 
