@@ -57,14 +57,6 @@ def index():
 
 
 #-----------------------------------------------------------
-# Home page route
-#-----------------------------------------------------------
-# @app.get("/")
-# def index():
-#     return render_template("pages/home.jinja")
-
-
-#-----------------------------------------------------------
 # About page route
 #-----------------------------------------------------------
 @app.get("/about/")
@@ -131,31 +123,62 @@ def show_one_thing(id):
 
 
 #-----------------------------------------------------------
-# Route for adding a thing, using data posted from a form
+# Route for adding a client, using data posted from a form
 # - Restricted to logged in users
 #-----------------------------------------------------------
-@app.post("/add")
+@app.post("/client-add/")
 @login_required
-def add_a_thing():
+def add_a_client():
     # Get the data from the form
     name  = request.form.get("name")
-    price = request.form.get("price")
+    phone = request.form.get("phone")
+    address = request.form.get("address")
 
     # Sanitise the text inputs
     name = html.escape(name)
+    phone = html.escape(phone)
+    address = html.escape(address)
 
     # Get the user id from the session
     user_id = session["user_id"]
 
     with connect_db() as client:
         # Add the thing to the DB
-        sql = "INSERT INTO things (name, price, user_id) VALUES (?, ?, ?)"
-        params = [name, price, user_id]
+        sql = "INSERT INTO clients (name, phone, address, user_id) VALUES (?, ?, ?, ?)"
+        params = [name, phone, address, user_id]
         client.execute(sql, params)
 
         # Go back to the home page
-        flash(f"Thing '{name}' added", "success")
-        return redirect("/things")
+        flash(f"Client '{name}' added", "success")
+        return redirect("/")
+
+
+#-----------------------------------------------------------
+# Route for adding a thing, using data posted from a form
+# - Restricted to logged in users
+#-----------------------------------------------------------
+# @app.post("/add")
+# @login_required
+# def add_a_thing():
+#     # Get the data from the form
+#     name  = request.form.get("name")
+#     price = request.form.get("price")
+
+#     # Sanitise the text inputs
+#     name = html.escape(name)
+
+#     # Get the user id from the session
+#     user_id = session["user_id"]
+
+#     with connect_db() as client:
+#         # Add the thing to the DB
+#         sql = "INSERT INTO things (name, price, user_id) VALUES (?, ?, ?)"
+#         params = [name, price, user_id]
+#         client.execute(sql, params)
+
+#         # Go back to the home page
+#         flash(f"Thing '{name}' added", "success")
+#         return redirect("/things")
 
 
 #-----------------------------------------------------------
