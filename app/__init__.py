@@ -123,35 +123,42 @@ def show_one_thing(id):
 
 
 #-----------------------------------------------------------
-# Route for adding a client, using data posted from a form
-# - Restricted to logged in users
+# Client add form route
 #-----------------------------------------------------------
-@app.post("/client-add/")
-@login_required
-def add_a_client():
+@app.get("/client-add")
+def add_client_form():
+    return render_template("pages/client-add.jinja")
+
+
+#-----------------------------------------------------------
+# Route for adding a client when registration form submitted
+#-----------------------------------------------------------
+@app.post("/add-client")
+def add_client():
     # Get the data from the form
-    name  = request.form.get("name")
+    name = request.form.get("name")
     phone = request.form.get("phone")
     address = request.form.get("address")
 
-    # Sanitise the text inputs
-    name = html.escape(name)
-    phone = html.escape(phone)
-    address = html.escape(address)
-
-    # Get the user id from the session
-    user_id = session["user_id"]
-
     with connect_db() as client:
-        # Add the thing to the DB
-        sql = "INSERT INTO clients (name, phone, address, user_id) VALUES (?, ?, ?, ?)"
-        params = [name, phone, address, user_id]
-        client.execute(sql, params)
+        # Attempt to find an existing record for that user
+        sql = "SELECT * FROM clients WHERE user_id = ?"
+        params = [name]
+        result = client.execute(sql, params)
 
-        # Go back to the home page
-        flash(f"Client '{name}' added", "success")
-        return redirect("/")
+        # No existing record found, so safe to add the user
+        if not result.rows:
+            # Sanitise the name
+            name = html.escape(name)
 
+            # Add the client to the clients table
+            sql = "INSERT INTO clients (name, phone, address) VALUES (?, ?, ?)"
+            params = [name, phone, address]
+            client.execute(sql, params)
+
+            # And let them know it was successful
+            flash(f"Client '{name}' added", "success")
+            return redirect("/")
 
 #-----------------------------------------------------------
 # Route for adding a thing, using data posted from a form
