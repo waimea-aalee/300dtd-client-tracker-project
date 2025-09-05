@@ -7,42 +7,43 @@
 
 {% endblock %}
 
-    {# Only show form if user is logged in #}
+
+{% block content %}
+
     {% if session.user_id %}
 
         <article>
 
-            <h3>Add a New Client...</h3>
+            <h3>Add a New Client</h3>
 
             <form action="/add-client" method="POST">
 
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Name of client"
-                    required
-                >
+                <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Name of client" 
+                required>
 
-                <input
-                    type="text"
-                    name="phone"
-                    placeholder="Phone number of client"
-                    required
-                >
+                <input 
+                    type="text" 
+                    name="phone" 
+                    placeholder="Phone number of client" 
+                required>
 
-                <input
-                    type="text"
-                    name="address"
-                    placeholder="Address of client"
-                    required
-                >
+                <input 
+                    type="text" 
+                    name="address" 
+                    placeholder="Address of client" 
+                required>
 
-                <button>Add Client</button>
+                <button>Submit</button>
+
+                <a href="/" role="button">Cancel</a>
 
             </form>
 
         </article>
 
     {% endif %}
-
+    
 {% endblock %}
