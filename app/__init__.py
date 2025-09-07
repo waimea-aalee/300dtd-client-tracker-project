@@ -126,39 +126,56 @@ def show_one_thing(id):
 # Client add form route
 #-----------------------------------------------------------
 @app.get("/client-add")
-def add_client_form():
+@login_required
+def client_add_form():
     return render_template("pages/client-add.jinja")
+
+@app.post("/client-add")
+@login_required
+def add_a_thing():
+    name = html.escape(request.form.get("name"))
+    phone = html.escape(request.form.get("phone"))
+    address = html.escape(request.form.get("address"))
+    user_id = session["user_id"]
+
+    with connect_db() as client:
+        sql = "INSERT INTO clients (name, phone, address, user_id) VALUES (?, ?, ?, ?)"
+        params = [name, phone, address, user_id]
+        client.execute(sql, params)
+
+    flash(f"Client '{name}' added", "success")
+    return redirect("/")
 
 
 #-----------------------------------------------------------
 # Route for adding a client when registration form submitted
 #-----------------------------------------------------------
-@app.post("/add-client")
-def add_client():
-    # Get the data from the form
-    name = request.form.get("name")
-    phone = request.form.get("phone")
-    address = request.form.get("address")
+# @app.post("/add-client")
+# def add_client():
+#     # Get the data from the form
+#     name = request.form.get("name")
+#     phone = request.form.get("phone")
+#     address = request.form.get("address")
 
-    with connect_db() as client:
-        # Attempt to find an existing record for that user
-        sql = "SELECT * FROM clients WHERE user_id = ?"
-        params = [name]
-        result = client.execute(sql, params)
+#     with connect_db() as client:
+#         # Attempt to find an existing record for that user
+#         sql = "SELECT * FROM clients WHERE user_id = ?"
+#         params = [name]
+#         result = client.execute(sql, params)
 
-        # No existing record found, so safe to add the user
-        if not result.rows:
-            # Sanitise the name
-            name = html.escape(name)
+#         # No existing record found, so safe to add the user
+#         if not result.rows:
+#             # Sanitise the name
+#             name = html.escape(name)
 
-            # Add the client to the clients table
-            sql = "INSERT INTO clients (name, phone, address) VALUES (?, ?, ?)"
-            params = [name, phone, address]
-            client.execute(sql, params)
+#             # Add the client to the clients table
+#             sql = "INSERT INTO clients (name, phone, address) VALUES (?, ?, ?)"
+#             params = [name, phone, address]
+#             client.execute(sql, params)
 
-            # And let them know it was successful
-            flash(f"Client '{name}' added", "success")
-            return redirect("/")
+#             # And let them know it was successful
+#             flash(f"Client '{name}' added", "success")
+#             return redirect("/")
 
 #-----------------------------------------------------------
 # Route for adding a thing, using data posted from a form
@@ -207,7 +224,39 @@ def delete_a_thing(id):
         # Go back to the home page
         flash("Thing deleted", "success")
         return redirect("/things")
-    
+
+
+#-----------------------------------------------------------
+# Route for client jobs
+#-----------------------------------------------------------
+@app.get("/job-info/<int:client_id>")
+@login_required
+def job_info(client_id):
+
+        user_id = session["user_id"]
+
+        with connect_db() as client:
+            # Get all the things from the DB
+            sql = """
+            SELECT 
+                jobs.id,
+                jobs.date,
+                jobs.name AS job_name,
+                jobs.hours_worked,
+                jobs.billed,
+                jobs.paid,
+            clients.name AS client_name
+            FROM jobs
+            JOIN clients ON jobs.client_id = clients.id
+            WHERE clients.user_id = ? AND clients.id = ?;
+            """
+            params=[user_id, client_id]
+            result = client.execute(sql, params)
+            jobs = result.rows
+
+            # And show them on the page
+            return render_template("pages/home.jinja", jobs=jobs)
+
 
 #-----------------------------------------------------------
 # User registration form route

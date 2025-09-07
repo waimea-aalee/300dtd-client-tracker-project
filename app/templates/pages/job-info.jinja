@@ -1,0 +1,61 @@
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %}
+
+    Client Tracker
+
+{% endblock %}
+
+
+{% block content %}
+
+      {% if session.user_id %}
+
+            <h1>{{ client.name }}</h1>
+
+        <article>
+
+                <table>
+
+        <thead>
+
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Hours Worked</th>
+                <th>Billed</th>
+                <th>Paid</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for job in jobs %}
+
+            <tr>
+                <td> {{ jobs.date }} </td>
+                <td> {{ jobs.name }} </td>
+                <td> {{ jobs.hours_worked }} </td>
+                <td> {{ jobs.billed }} </td>
+                <td> {{ jobs.paid }} </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+        
+    </table>
+                    
+        </article>
+
+        <a href="/job-add" role="button">Add a Job</a>
+
+        {% else %}
+
+            No jobs yet!
+
+    {% endif %}
+
+{% endblock %}

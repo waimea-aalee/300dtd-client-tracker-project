@@ -22,21 +22,34 @@
             <h1>Clients</h1>
 
         <article>
-                    
-            <ul>
-                {% for client in clients %}
 
-                    
-                    <p>{{ client.name }} {{ client.phone }} {{ client.address }}</p>
-                    
-                    
+                <table>
 
-                {% else %}
+        <thead>
 
-                    <p>None!</p>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
 
-                {% endfor %}
-            </ul>
+        </thead>
+
+        <tbody>
+
+            {% for client in clients %}
+
+            <tr>
+                <td> <a href="/job-info/{{ client.id }}">{{ client.name }}</a> </td>
+                <td>{{ client.phone }}</td>
+                <td>{{ client.address }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+        
+    </table>
                     
         </article>
 
