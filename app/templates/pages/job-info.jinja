@@ -12,7 +12,7 @@
 
       {% if session.user_id %}
 
-            <h1>{{ client.name }}</h1>
+            <h1>{{ client_name }}</h1>
 
         <article>
 
@@ -35,11 +35,11 @@
             {% for job in jobs %}
 
             <tr>
-                <td> {{ jobs.date }} </td>
-                <td> {{ jobs.name }} </td>
-                <td> {{ jobs.hours_worked }} </td>
-                <td> {{ jobs.billed }} </td>
-                <td> {{ jobs.paid }} </td>
+                <td> {{ job.date }} </td>
+                <td> {{ job.name }} </td>
+                <td> {{ job.hours_worked }} </td>
+                <td> {{ job.billed }} </td>
+                <td> {{ job.paid }} </td>
             </tr>
 
             {% endfor %}
@@ -51,6 +51,8 @@
         </article>
 
         <a href="/job-add" role="button">Add a Job</a>
+
+        <a href="/" role="button">Back</a>
 
         {% else %}
 

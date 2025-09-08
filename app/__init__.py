@@ -39,7 +39,8 @@ def index():
         with connect_db() as client:
             # Get all the things from the DB
             sql = """
-            SELECT clients.name,
+            SELECT clients.id,
+                   clients.name,
                    clients.phone,
                    clients.address
             FROM clients
@@ -123,18 +124,22 @@ def show_one_thing(id):
 
 
 #-----------------------------------------------------------
-# Client add form route
+# Route for add client page
 #-----------------------------------------------------------
 @app.get("/client-add")
 @login_required
 def client_add_form():
     return render_template("pages/client-add.jinja")
 
+
+#-----------------------------------------------------------
+# Route for adding a client when form submitted
+#-----------------------------------------------------------
 @app.post("/client-add")
 @login_required
-def add_a_thing():
-    name = html.escape(request.form.get("name"))
-    phone = html.escape(request.form.get("phone"))
+def add_a_client():
+    name    = html.escape(request.form.get("name"))
+    phone   = html.escape(request.form.get("phone"))
     address = html.escape(request.form.get("address"))
     user_id = session["user_id"]
 
@@ -146,36 +151,6 @@ def add_a_thing():
     flash(f"Client '{name}' added", "success")
     return redirect("/")
 
-
-#-----------------------------------------------------------
-# Route for adding a client when registration form submitted
-#-----------------------------------------------------------
-# @app.post("/add-client")
-# def add_client():
-#     # Get the data from the form
-#     name = request.form.get("name")
-#     phone = request.form.get("phone")
-#     address = request.form.get("address")
-
-#     with connect_db() as client:
-#         # Attempt to find an existing record for that user
-#         sql = "SELECT * FROM clients WHERE user_id = ?"
-#         params = [name]
-#         result = client.execute(sql, params)
-
-#         # No existing record found, so safe to add the user
-#         if not result.rows:
-#             # Sanitise the name
-#             name = html.escape(name)
-
-#             # Add the client to the clients table
-#             sql = "INSERT INTO clients (name, phone, address) VALUES (?, ?, ?)"
-#             params = [name, phone, address]
-#             client.execute(sql, params)
-
-#             # And let them know it was successful
-#             flash(f"Client '{name}' added", "success")
-#             return redirect("/")
 
 #-----------------------------------------------------------
 # Route for adding a thing, using data posted from a form
@@ -241,7 +216,7 @@ def job_info(client_id):
             SELECT 
                 jobs.id,
                 jobs.date,
-                jobs.name AS job_name,
+                jobs.name,
                 jobs.hours_worked,
                 jobs.billed,
                 jobs.paid,
@@ -254,8 +229,38 @@ def job_info(client_id):
             result = client.execute(sql, params)
             jobs = result.rows
 
-            # And show them on the page
-            return render_template("pages/home.jinja", jobs=jobs)
+        client_name = jobs[0]["client_name"] if jobs else None
+
+        # Show the info on correct page
+        return render_template("pages/job-info.jinja", jobs=jobs, client_name=client_name)
+
+
+#-----------------------------------------------------------
+# Route for adding a job when form submitted
+#-----------------------------------------------------------
+@app.post("/job-add")
+@login_required
+def add_a_job():
+
+    user_id = session["user_id"]
+
+    client_id    = html.escape(request.form.get("client_id"))
+    name         = html.escape(request.form.get("name"))
+    hours_worked = html.escape(request.form.get("hours_worked"))
+    billed       = 1 if request.form.get("billed") else 0
+    paid         = 1 if request.form.get("paid") else 0
+
+    with connect_db() as client:
+        sql = """
+        INSERT INTO jobs (client_id, name, hours_worked, billed, paid)
+        VALUES (?, ?, ?, ?, ?)
+        """
+
+        params = [client_id, name, hours_worked, billed, paid]
+        client.execute(sql, params)
+
+    flash(f"Job '{name}' added", "success")
+    return redirect(f"/job-info/{client_id}")
 
 
 #-----------------------------------------------------------
