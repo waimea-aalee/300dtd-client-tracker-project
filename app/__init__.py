@@ -236,31 +236,37 @@ def job_info(client_id):
 
 
 #-----------------------------------------------------------
+# Route for add job page
+#-----------------------------------------------------------
+@app.get("/job-add")
+@login_required
+def job_add_form():
+    return render_template("pages/job-add.jinja")
+
+
+#-----------------------------------------------------------
 # Route for adding a job when form submitted
 #-----------------------------------------------------------
 @app.post("/job-add")
 @login_required
 def add_a_job():
-
-    user_id = session["user_id"]
-
     client_id    = html.escape(request.form.get("client_id"))
-    name         = html.escape(request.form.get("name"))
-    hours_worked = html.escape(request.form.get("hours_worked"))
+    name         = request.form.get("name")
+    hours_worked = request.form.get("hours_worked")
     billed       = 1 if request.form.get("billed") else 0
     paid         = 1 if request.form.get("paid") else 0
+    user_id = session["user_id"]
 
     with connect_db() as client:
         sql = """
-        INSERT INTO jobs (client_id, name, hours_worked, billed, paid)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT INTO jobs (client_id, name, hours_worked, billed, paid, user_id)
+        VALUES (?, ?, ?, ?, ?, ?)
         """
-
-        params = [client_id, name, hours_worked, billed, paid]
+        params = [client_id, name, hours_worked, billed, paid, user_id]
         client.execute(sql, params)
 
     flash(f"Job '{name}' added", "success")
-    return redirect(f"/job-info/{client_id}")
+    return redirect("/job-info")
 
 
 #-----------------------------------------------------------
