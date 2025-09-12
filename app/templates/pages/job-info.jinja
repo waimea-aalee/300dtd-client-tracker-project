@@ -47,10 +47,54 @@
         </tbody>
         
     </table>
-                    
-        </article>
 
-        <a href="/job-add" role="button">Add a Job</a>
+
+        <details>
+
+            <summary>Add a Job</summary>
+
+            <form action="/job-add/{{ client_id }}" method="POST">
+
+                <fieldset>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        placeholder="Name of job" 
+                    required>
+
+                    <input 
+                        type="number" 
+                        name="hours_worked" 
+                        placeholder="Number of hours worked" 
+                    required>
+
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            name="billed" 
+                            value="1" 
+                        >
+                        Billed
+                    </label>
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            name="paid" 
+                            value="1"
+                        >
+                        Paid
+                    </label>
+                </fieldset>
+                
+                <button>Submit</button>
+
+                <a href="/" role="button">Cancel</a>
+
+            </form>
+
+        </details>
+
+        </article>
 
         <a href="/" role="button">Back</a>
 

@@ -50,16 +50,44 @@
         </tbody>
         
     </table>
-                    
-        </article>
 
-        <a href="/client-add" role="button">Add a Client</a>
+    
+        <details>
+
+            <summary>Add a Job</summary>
+
+                        <form action="/client-add" method="POST">
+
+                <fieldset>
+                <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Name of client" 
+                required>
+
+                <input 
+                    type="text" 
+                    name="phone" 
+                    placeholder="Phone number of client" 
+                required>
+
+                <input 
+                    type="text" 
+                    name="address" 
+                    placeholder="Address of client" 
+                required>
+
+                <button>Submit</button>
+
+                <a href="/" role="button">Cancel</a>
+
+            </form>
+            </fieldset>
 
         {% else %}
 
             <h1>Welcome</h1>
 
-     <article>
 
         <header>
             <h2>Please Log In</h2>
@@ -84,6 +112,7 @@
             <button>Login</button>
 
         </form>
+        </details>
 
         <footer>
             Or, if you don't have an account, <a href="/register">Sign Up</a>

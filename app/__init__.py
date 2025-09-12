@@ -220,7 +220,7 @@ def job_info(client_id):
                 jobs.hours_worked,
                 jobs.billed,
                 jobs.paid,
-            clients.name AS client_name
+                clients.name AS client_name
             FROM jobs
             JOIN clients ON jobs.client_id = clients.id
             WHERE clients.user_id = ? AND clients.id = ?;
@@ -229,10 +229,10 @@ def job_info(client_id):
             result = client.execute(sql, params)
             jobs = result.rows
 
-        client_name = jobs[0]["client_name"] if jobs else None
+            client_name = jobs[0]["client_name"] if jobs else None
 
         # Show the info on correct page
-        return render_template("pages/job-info.jinja", jobs=jobs, client_name=client_name)
+        return render_template("pages/job-info.jinja", jobs=jobs, client_id=client_id, client_name=client_name)
 
 
 #-----------------------------------------------------------
@@ -247,10 +247,9 @@ def job_add_form():
 #-----------------------------------------------------------
 # Route for adding a job when form submitted
 #-----------------------------------------------------------
-@app.post("/job-add")
+@app.post("/job-add/<int:client_id>")
 @login_required
-def add_a_job():
-    client_id    = html.escape(request.form.get("client_id"))
+def add_a_job(client_id):
     name         = request.form.get("name")
     hours_worked = request.form.get("hours_worked")
     billed       = 1 if request.form.get("billed") else 0
@@ -259,8 +258,8 @@ def add_a_job():
 
     with connect_db() as client:
         sql = """
-        INSERT INTO jobs (client_id, name, hours_worked, billed, paid, user_id)
-        VALUES (?, ?, ?, ?, ?, ?)
+        INSERT INTO jobs (client_id, name, hours_worked, billed, paid)
+        VALUES (?, ?, ?, ?, ?)
         """
         params = [client_id, name, hours_worked, billed, paid, user_id]
         client.execute(sql, params)
