@@ -40,6 +40,7 @@
                 <td> {{ job.hours_worked }} </td>
                 <td> {{ job.billed }} </td>
                 <td> {{ job.paid }} </td>
+                <td> <a href="/job-edit/{{ job.id }}">Edit</a> </td>
             </tr>
 
             {% endfor %}
@@ -51,7 +52,7 @@
 
         <details>
 
-            <summary>Add a Job</summary>
+            <summary><strong>Add a Job</strong></summary>
 
             <form action="/job-add/{{ client_id }}" method="POST">
 
@@ -87,8 +88,6 @@
                 </fieldset>
                 
                 <button>Submit</button>
-
-                <a href="/" role="button">Cancel</a>
 
             </form>
 

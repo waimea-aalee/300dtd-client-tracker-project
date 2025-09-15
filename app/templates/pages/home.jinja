@@ -43,6 +43,7 @@
                 <td> <a href="/job-info/{{ client.id }}">{{ client.name }}</a> </td>
                 <td>{{ client.phone }}</td>
                 <td>{{ client.address }}</td>
+                <td> <a href="/client-edit/{{ client.id }}">Edit</a> </td>
             </tr>
 
             {% endfor %}
@@ -54,7 +55,7 @@
     
         <details>
 
-            <summary><strong>Add a Job</strong></summary>
+            <summary><strong>Add a Client</strong></summary>
 
                         <form action="/client-add" method="POST">
 
@@ -78,8 +79,6 @@
                 required>
 
                 <button>Submit</button>
-
-                <a href="/" role="button">Cancel</a>
 
             </form>
             </fieldset>

@@ -58,14 +58,6 @@ def index():
 
 
 #-----------------------------------------------------------
-# About page route
-#-----------------------------------------------------------
-@app.get("/about/")
-def about():
-    return render_template("pages/about.jinja")
-
-
-#-----------------------------------------------------------
 # Things page route - Show all the things, and new thing form
 #-----------------------------------------------------------
 # @app.get("/things/")
@@ -153,34 +145,6 @@ def add_a_client():
 
 
 #-----------------------------------------------------------
-# Route for adding a thing, using data posted from a form
-# - Restricted to logged in users
-#-----------------------------------------------------------
-# @app.post("/add")
-# @login_required
-# def add_a_thing():
-#     # Get the data from the form
-#     name  = request.form.get("name")
-#     price = request.form.get("price")
-
-#     # Sanitise the text inputs
-#     name = html.escape(name)
-
-#     # Get the user id from the session
-#     user_id = session["user_id"]
-
-#     with connect_db() as client:
-#         # Add the thing to the DB
-#         sql = "INSERT INTO things (name, price, user_id) VALUES (?, ?, ?)"
-#         params = [name, price, user_id]
-#         client.execute(sql, params)
-
-#         # Go back to the home page
-#         flash(f"Thing '{name}' added", "success")
-#         return redirect("/things")
-
-
-#-----------------------------------------------------------
 # Route for deleting a thing, Id given in the route
 # - Restricted to logged in users
 #-----------------------------------------------------------
@@ -236,15 +200,6 @@ def job_info(client_id):
 
 
 #-----------------------------------------------------------
-# Route for add job page
-#-----------------------------------------------------------
-@app.get("/job-add")
-@login_required
-def job_add_form():
-    return render_template("pages/job-add.jinja")
-
-
-#-----------------------------------------------------------
 # Route for adding a job when form submitted
 #-----------------------------------------------------------
 @app.post("/job-add/<int:client_id>")
@@ -261,7 +216,7 @@ def add_a_job(client_id):
         INSERT INTO jobs (client_id, name, hours_worked, billed, paid)
         VALUES (?, ?, ?, ?, ?)
         """
-        params = [client_id, name, hours_worked, billed, paid, user_id]
+        params = [client_id, name, hours_worked, billed, paid]
         client.execute(sql, params)
 
     flash(f"Job '{name}' added", "success")
