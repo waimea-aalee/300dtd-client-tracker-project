@@ -220,7 +220,47 @@ def add_a_job(client_id):
         client.execute(sql, params)
 
     flash(f"Job '{name}' added", "success")
-    return redirect("/job-info")
+    return redirect(f"/job-info/{client_id}")
+
+
+#-----------------------------------------------------------
+# Route for editing a job
+#-----------------------------------------------------------
+@app.get("/job-edit/<int:client_id>/<int:job_id>")
+@login_required
+def edit_a_job(client_id, job_id):
+    user_id =  session["user_id"]
+
+    with connect_db() as client:
+        sql = """
+        SELECT id, name, hours_worked, billed, paid, client_id
+        FROM jobs WHERE id = ? AND client_id = ?
+        """
+
+        params = [job_id, client_id]
+        job = client.execute(sql, params).fetchone()
+    return render_template("pages/job-edit.jinja", job=job, client_id=client_id)
+
+
+@app.post("/job-edit/<int:client_id>/<int:job_id>")
+@login_required
+def save_job(client_id, job_id):
+    name = request.form.get("name")
+    hours_worked = request.form.get("hours_worked")
+    billed       = 1 if request.form.get("billed") else 0
+    paid         = 1 if request.form.get("paid") else 0
+
+    with connect_db() as client:
+        sql = """
+        UPDATE jobs
+        SET name = ?, hours_worked  = ?, billed = ?, paid = ?
+        WHERE id = ? AND client_id = ?
+        """
+        params = [name, hours_worked, billed, paid, job_id, client_id]
+        client.execute(sql, params)
+
+    flash(f"Job '{name}' updated", "success")
+    return redirect(f"/job-info/{client_id}")
 
 
 #-----------------------------------------------------------

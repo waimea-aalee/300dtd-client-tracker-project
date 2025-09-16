@@ -1,0 +1,71 @@
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %}
+
+    Client Tracker
+
+{% endblock %}
+
+
+{% block content %}
+
+      {% if session.user_id %}
+
+            <summary>Edit Job</summary>
+
+            <form action="/job-edit/{{ job.client_id }}/{{ job.id }}" method="POST">
+
+                <fieldset>
+                    <label>
+                        Name of Job:
+                        <input 
+                           type="text" 
+                            name="name" 
+                            value="{{ job.name }}"
+                        required>
+                    </label>
+
+                    <label>
+                        Hours worked:
+                        <input
+                            type="number" 
+                            name="hours_worked" 
+                            value="{{ job.hours_worked }}" 
+                        required>
+                    </label>
+
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            name="billed" 
+                            value="1" 
+                            {% if job.billed %}checked{% endif  %}
+                        >
+                        Billed
+                    </label>
+
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            name="paid" 
+                            value="1"
+                            {% if job.paid %}checked{% endif %}
+                        >
+                        Paid
+                    </label>
+                </fieldset>
+                
+                <button type="submit">Save Changes</button>
+            </form>
+
+
+        <a href="/job-info/{{ job.client_id }}">Cancel</a>
+
+        {% else %}
+
+            <p>Please log in to edit jobs</p>
+
+    {% endif %}
+
+{% endblock %}
