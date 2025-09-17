@@ -145,6 +145,56 @@ def add_a_client():
 
 
 #-----------------------------------------------------------
+# Route for editing a client
+#-----------------------------------------------------------
+@app.get("/client-edit/<int:client_id>")
+@login_required
+def edit_a_client(client_id):
+    if "logged_in" in session:
+        user_id =  session["user_id"]
+
+    with connect_db() as client:
+        sql = """
+        SELECT id, name, phone, address
+        FROM clients WHERE id = ?
+        """
+
+        params = [client_id]
+        result = client.execute(sql, params)
+        rows = result.rows
+        client_info = rows[0] if rows else None
+
+    if client_info is None:
+        flash("Client not found", "error")
+        return redirect("/")
+    else:
+        return render_template("pages/client-edit.jinja", client=client_info)
+
+
+#-----------------------------------------------------------
+# Route for saving edited client
+#-----------------------------------------------------------
+@app.post("/client-edit/<int:client_id>")
+@login_required
+def save_client(client_id):
+    name = request.form.get("name")
+    phone = request.form.get("phone")
+    address = request.form.get("address")
+
+    with connect_db() as client:
+        sql = """
+        UPDATE clients
+        SET name = ?, phone = ?, address = ?
+        WHERE id = ?
+        """
+        params = [name, phone, address, client_id]
+        client.execute(sql, params)
+
+    flash(f"Client '{name}' updated", "success")
+    return redirect("/")
+
+
+#-----------------------------------------------------------
 # Route for deleting a thing, Id given in the route
 # - Restricted to logged in users
 #-----------------------------------------------------------
@@ -242,6 +292,10 @@ def edit_a_job(client_id, job_id):
         result = client.execute(sql, params)
         rows = result.rows
         job = rows[0] if rows else None
+
+    if job is None:
+        flash("Job not found", "error")
+        return redirect(f"/job-info/{client_id}")
     return render_template("pages/job-edit.jinja", job=job, client_id=client_id)
 
 

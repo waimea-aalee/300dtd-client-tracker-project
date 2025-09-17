@@ -12,105 +12,48 @@
 
       {% if session.user_id %}
 
-            <h1>Edit Clients</h1>
+            <summary><strong>Edit Client</strong></summary>
 
-        <article>
+            <form action="/client-edit/{{ client.id }}" method="POST">
 
-                <table>
+            <fieldset>
+                <label>
+                    Name of Client:
+                    <input
+                        type="text"
+                        name="name"
+                        value="{{ client.name }}"
+                    required>
+                </label>
 
-        <thead>
+                                <label>
+                    Phone number of Client:
+                    <input
+                        type="text"
+                        name="phone"
+                        value="{{ client.phone }}"
+                    required>
+                </label>
 
-            <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Address</th>
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            {% for client in clients %}
-
-            <tr>
-                <td> <a href="/job-info/{{ client.id }}">{{ client.name }}</a> </td>
-                <td>{{ client.phone }}</td>
-                <td>{{ client.address }}</td>
-                <td> <a href="/client-edit/{{ client.id }}">Edit</a> </td>
-            </tr>
-
-            {% endfor %}
-
-        </tbody>
-        
-    </table>
-
-    
-        <details>
-
-            <summary><strong>Add a Client</strong></summary>
-
-                        <form action="/client-add" method="POST">
-
-                <fieldset>
-                <input 
-                    type="text" 
-                    name="name" 
-                    placeholder="Name of client" 
-                required>
-
-                <input 
-                    type="text" 
-                    name="phone" 
-                    placeholder="Phone number of client" 
-                required>
-
-                <input 
-                    type="text" 
-                    name="address" 
-                    placeholder="Address of client" 
-                required>
-
-                <button>Submit</button>
-
-            </form>
+                                <label>
+                    Address of Client:
+                    <input
+                        type="text"
+                        name="address"
+                        value="{{ client.address }}"
+                    required>
+                </label>
             </fieldset>
+
+                <button type="submit">Save Changes</button>
+            </form>
+
+
+        <a href="/">Cancel</a>
 
         {% else %}
 
-            <h1>Welcome</h1>
-
-
-        <header>
-            <h2>Please Log In</h2>
-        </header>
-
-        <form action="/login-user" method="POST">
-
-            <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                required
-            >
-
-            <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                required
-            >
-
-            <button>Login</button>
-
-        </form>
-        </details>
-
-        <footer>
-            Or, if you don't have an account, <a href="/register">Sign Up</a>
-        </footer>
-
-    </article>
+            <p>Please log in to edit client info</p>
 
     {% endif %}
 
