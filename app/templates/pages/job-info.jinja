@@ -40,7 +40,7 @@
                 <td> {{ job.hours_worked }} </td>
                 <td> {{ job.billed }} </td>
                 <td> {{ job.paid }} </td>
-                <td> <a href="/job-edit/{{ job.id }}">Edit</a> </td>
+                <td> <a href="/job-edit/{{ job.client_id }}/{{ job.id }}">Edit</a> </td>
             </tr>
 
             {% endfor %}

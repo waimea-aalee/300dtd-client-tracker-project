@@ -184,6 +184,7 @@ def job_info(client_id):
                 jobs.hours_worked,
                 jobs.billed,
                 jobs.paid,
+                jobs.client_id,
                 clients.name AS client_name
             FROM jobs
             JOIN clients ON jobs.client_id = clients.id
@@ -238,10 +239,15 @@ def edit_a_job(client_id, job_id):
         """
 
         params = [job_id, client_id]
-        job = client.execute(sql, params).fetchone()
+        result = client.execute(sql, params)
+        rows = result.rows
+        job = rows[0] if rows else None
     return render_template("pages/job-edit.jinja", job=job, client_id=client_id)
 
 
+#-----------------------------------------------------------
+# Route for saving edited job
+#-----------------------------------------------------------
 @app.post("/job-edit/<int:client_id>/<int:job_id>")
 @login_required
 def save_job(client_id, job_id):
