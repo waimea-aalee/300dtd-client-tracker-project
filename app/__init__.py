@@ -195,24 +195,48 @@ def save_client(client_id):
 
 
 #-----------------------------------------------------------
-# Route for deleting a thing, Id given in the route
+# Route for deleting a client, Id given in the route
 # - Restricted to logged in users
 #-----------------------------------------------------------
-@app.get("/delete/<int:id>")
+@app.get("/delete/<int:client_id>")
 @login_required
-def delete_a_thing(id):
+def delete_a_client(client_id):
     # Get the user id from the session
     user_id = session["user_id"]
 
     with connect_db() as client:
         # Delete the thing from the DB only if we own it
-        sql = "DELETE FROM things WHERE id=? AND user_id=?"
-        params = [id, user_id]
+        sql = """
+        DELETE FROM clients 
+        WHERE id=? AND user_id=?
+        """
+        params = [client_id, user_id]
         client.execute(sql, params)
 
         # Go back to the home page
-        flash("Thing deleted", "success")
-        return redirect("/things")
+        flash("Client deleted", "success")
+        return redirect("/")
+
+
+#-----------------------------------------------------------
+# Route for deleting a thing, Id given in the route
+# - Restricted to logged in users
+#-----------------------------------------------------------
+# @app.get("/delete/<int:id>")
+# @login_required
+# def delete_a_thing(id):
+#     # Get the user id from the session
+#     user_id = session["user_id"]
+
+#     with connect_db() as client:
+#         # Delete the thing from the DB only if we own it
+#         sql = "DELETE FROM things WHERE id=? AND user_id=?"
+#         params = [id, user_id]
+#         client.execute(sql, params)
+
+#         # Go back to the home page
+#         flash("Thing deleted", "success")
+#         return redirect("/things")
 
 
 #-----------------------------------------------------------

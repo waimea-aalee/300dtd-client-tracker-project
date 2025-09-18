@@ -43,7 +43,10 @@
                 <td> <a href="/job-info/{{ client.id }}">{{ client.name }}</a> </td>
                 <td>{{ client.phone }}</td>
                 <td>{{ client.address }}</td>
-                <td> <a href="/client-edit/{{ client.id }}">Edit</a> </td>
+                <td style="text-align: right;">
+                <a href="/client-edit/{{ client.id }}">Edit</a>
+                <a href="/delete/{{ client.id }}" onclick="return confirm('Really delete?');">Delete</a>
+                </td>
             </tr>
 
             {% endfor %}
