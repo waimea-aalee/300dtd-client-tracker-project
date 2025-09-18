@@ -275,6 +275,60 @@ def job_info(client_id):
 
 
 #-----------------------------------------------------------
+# Route for checking billed box
+#-----------------------------------------------------------
+@app.post("/job-toggle-billed/<int:job_id>")
+@login_required
+def toggle_job_billed(job_id):
+    user_id = session["user_id"]
+
+    with connect_db() as client:
+        sql = """
+        UPDATE jobs
+        SET billed = CASE billed
+                        WHEN 1 THEN 0
+                        ELSE 1
+                     END
+        WHERE id=? AND client_id IN (
+        SELECT id FROM clients WHERE user_id=?
+        )
+        """
+
+        params = [job_id, user_id]
+        client.execute(sql, params)
+
+        flash("Billed updated", "success")
+        return redirect(request.referrer or "/")
+
+
+#-----------------------------------------------------------
+# Route for checking paid box
+#-----------------------------------------------------------
+@app.post("/job-toggle-paid/<int:job_id>")
+@login_required
+def toggle_job_paid(job_id):
+    user_id = session["user_id"]
+
+    with connect_db() as client:
+        sql = """
+        UPDATE jobs
+        SET paid = CASE paid
+                        WHEN 1 THEN 0
+                        ELSE 1
+                     END
+        WHERE id=? AND client_id IN (
+        SELECT id FROM clients WHERE user_id=?
+        )
+        """
+
+        params = [job_id, user_id]
+        client.execute(sql, params)
+
+        flash("Paid updated", "success")
+        return redirect(request.referrer or "/")
+
+
+#-----------------------------------------------------------
 # Route for adding a job when form submitted
 #-----------------------------------------------------------
 @app.post("/job-add/<int:client_id>")
@@ -345,6 +399,33 @@ def save_job(client_id, job_id):
 
     flash(f"Job '{name}' updated", "success")
     return redirect(f"/job-info/{client_id}")
+
+
+#-----------------------------------------------------------
+# Route for deleting a job, Id given in the route
+# - Restricted to logged in users
+#-----------------------------------------------------------
+@app.get("/delete/<int:client_id>/<int:job_id>")
+@login_required
+def delete_a_job(client_id, job_id):
+    # Get the user id from the session
+    user_id = session["user_id"]
+
+    with connect_db() as client:
+        # Delete the job from the DB only if we own it
+        sql = """
+        DELETE FROM jobs 
+        WHERE id=? 
+            AND client_id IN (
+                SELECT id FROM clients WHERE id=? AND user_id=?
+            )
+        """
+        params = [job_id, client_id, user_id]
+        client.execute(sql, params)
+
+        # Go back to the job page
+        flash("Job deleted", "success")
+        return redirect(f"/job-info/{client_id}")
 
 
 #-----------------------------------------------------------

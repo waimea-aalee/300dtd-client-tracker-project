@@ -12,7 +12,7 @@
 
       {% if session.user_id %}
 
-            <summary>Edit Job</summary>
+            <summary><strong>Edit Job</strong></summary>
 
             <form action="/job-edit/{{ job.client_id }}/{{ job.id }}" method="POST">
 
@@ -57,10 +57,8 @@
                 </fieldset>
                 
                 <button type="submit">Save Changes</button>
+                <a href="/job-info" role="button">Cancel</a>
             </form>
-
-
-        <a href="/job-info/{{ job.client_id }}">Cancel</a>
 
         {% else %}
 
