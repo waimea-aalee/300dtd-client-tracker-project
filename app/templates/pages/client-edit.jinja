@@ -13,7 +13,7 @@
       {% if session.user_id %}
 
             <summary><strong>Edit Client</strong></summary>
-
+        <div style="overflow-x:auto;">
             <form action="/client-edit/{{ client.id }}" method="POST">
 
             <fieldset>
@@ -26,7 +26,7 @@
                     required>
                 </label>
 
-                                <label>
+                <label>
                     Phone number of Client:
                     <input
                         type="text"
@@ -35,7 +35,7 @@
                     required>
                 </label>
 
-                                <label>
+                <label>
                     Address of Client:
                     <input
                         type="text"
@@ -51,6 +51,7 @@
             </div>
 
             </form>
+        </div>
 
         {% else %}
 
