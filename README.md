@@ -11,9 +11,9 @@ My project is about tracking clients and the jobs done for them, specifically ta
 
 - Manage Clients
 - Track jobs
-- Toggle check and paid boxes
-- Feature 4 here
-- Feature 5 here
+- Toggle billed and paid boxes
+- Secure login
+- Real time feedback
 
 
 ---
