@@ -58,31 +58,6 @@ def index():
 
 
 #-----------------------------------------------------------
-# Things page route - Show all the things, and new thing form
-#-----------------------------------------------------------
-# @app.get("/things/")
-# def show_all_things():
-#     with connect_db() as client:
-#         # Get all the things from the DB
-#         sql = """
-#             SELECT things.id,
-#                    things.name,
-#                    users.name AS owner
-
-#             FROM things
-#             JOIN users ON things.user_id = users.id
-
-#             ORDER BY things.name ASC
-#         """
-#         params=[]
-#         result = client.execute(sql, params)
-#         things = result.rows
-
-#         # And show them on the page
-#         return render_template("pages/things.jinja", things=things)
-
-
-#-----------------------------------------------------------
 # Thing page route - Show details of a single thing
 #-----------------------------------------------------------
 @app.get("/thing/<int:id>")
@@ -216,27 +191,6 @@ def delete_a_client(client_id):
         # Go back to the home page
         flash("Client deleted", "success")
         return redirect("/")
-
-
-#-----------------------------------------------------------
-# Route for deleting a thing, Id given in the route
-# - Restricted to logged in users
-#-----------------------------------------------------------
-# @app.get("/delete/<int:id>")
-# @login_required
-# def delete_a_thing(id):
-#     # Get the user id from the session
-#     user_id = session["user_id"]
-
-#     with connect_db() as client:
-#         # Delete the thing from the DB only if we own it
-#         sql = "DELETE FROM things WHERE id=? AND user_id=?"
-#         params = [id, user_id]
-#         client.execute(sql, params)
-
-#         # Go back to the home page
-#         flash("Thing deleted", "success")
-#         return redirect("/things")
 
 
 #-----------------------------------------------------------

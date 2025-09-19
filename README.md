@@ -7,11 +7,11 @@ by Azaria Lee
 
 ## Project Description
 
-Replace this text with your project description and list the key features below
+My project is about tracking clients and the jobs done for them, specifically targeted towards builders  you can:
 
-- Feature 1 here
-- Feature 2 here
-- Feature 3 here
+- Manage Clients
+- Track jobs
+- Toggle check and paid boxes
 - Feature 4 here
 - Feature 5 here
 
