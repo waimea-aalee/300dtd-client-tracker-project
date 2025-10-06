@@ -37,8 +37,16 @@
 
         <tbody>
 
-            {% for client in clients %}
+            
+            {% if not clients %}
+            <tr>
+                <td colspan="4" style="text-align:center;">
+                    <h3><strong>No clients yet!</strong></h3>
+                </td>
+            </tr>
 
+            {% else %}
+            {% for client in clients %}
             <tr>
                 <td> <a href="/job-info/{{ client.id }}">{{ client.name }}</a> </td>
                 <td>{{ client.phone }}</td>
@@ -50,6 +58,8 @@
             </tr>
 
             {% endfor %}
+
+            {% endif %}
 
         </tbody>
         

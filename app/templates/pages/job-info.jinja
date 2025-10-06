@@ -32,6 +32,7 @@
 
         <tbody>
 
+        {% if jobs %}
             {% for job in jobs %}
 
             <tr>
@@ -58,6 +59,13 @@
             </tr>
 
             {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="6" style="text-align:center;">
+                        <h3><strong>No jobs yet!</strong></h3>
+                    </td>
+                </tr>
+            {% endif %}
 
         </tbody>
         
@@ -112,10 +120,6 @@
         </article>
 
         <a href="/" role="button">Back</a>
-
-        {% else %}
-
-            No jobs yet!
 
     {% endif %}
 
