@@ -214,15 +214,15 @@ def job_info(client_id):
                 jobs.paid,
                 jobs.client_id,
                 clients.name AS client_name
-            FROM jobs
-            JOIN clients ON jobs.client_id = clients.id
+            FROM clients
+            LEFT JOIN jobs ON jobs.client_id = clients.id
             WHERE clients.user_id = ? AND clients.id = ?;
             """
             params=[user_id, client_id]
             result = client.execute(sql, params)
             jobs = result.rows
 
-            client_name = jobs[0]["client_name"] if jobs else None
+            client_name = jobs[0]["client_name"]
 
         # Show the info on correct page
         return render_template("pages/job-info.jinja", jobs=jobs, client_id=client_id, client_name=client_name)
