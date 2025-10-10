@@ -32,33 +32,32 @@
 
         <tbody>
 
-        {% if jobs %}
+        {% if jobs and jobs[0].id %}
             {% for job in jobs %}
 
-            <tr>
-                <td> {{ job.date }} </td>
-                <td> {{ job.name }} </td>
-                <td> {{ job.hours_worked }} </td>
+                <tr>
+                    <td> {{ job.date }} </td>
+                    <td> {{ job.name }} </td>
+                    <td> {{ job.hours_worked }} </td>
 
-                <td> 
-                    <form action="/job-toggle-billed/{{  job.id }}" method="POST" style="display:inline;">
-                        <input type="checkbox" onchange="this.form.submit()" {% if job.billed %}checked{% endif %}>
-                    </form>
-                </td>
+                    <td> 
+                        <form action="/job-toggle-billed/{{  job.id }}" method="POST" style="display:inline;">
+                            <input type="checkbox" onchange="this.form.submit()" {% if job.billed %}checked{% endif %}>
+                        </form>
+                    </td>
 
-                <td> 
-                    <form action="/job-toggle-paid/{{  job.id }}" method="POST" style="display:inline;">
-                        <input type="checkbox" onchange="this.form.submit()" {% if job.paid %}checked{% endif %}>
-                    </form>
-                </td>
+                    <td> 
+                        <form action="/job-toggle-paid/{{  job.id }}" method="POST" style="display:inline;">
+                            <input type="checkbox" onchange="this.form.submit()" {% if job.paid %}checked{% endif %}>
+                        </form>
+                    </td>
 
-                <td style="text-align: right;">
-                <a href="/job-edit/{{ job.client_id }}/{{ job.id }}">Edit</a>
-                <a href="/delete/{{ job.client_id }}/{{ job.id }}" onclick="return confirm('Really delete?');">Delete</a>
-                </td>
-            </tr>
-
-            {% endfor %}
+                    <td style="text-align: right;">
+                        <a href="/job-edit/{{ job.client_id }}/{{ job.id }}">Edit</a>
+                        <a href="/delete/{{ job.client_id }}/{{ job.id }}" onclick="return confirm('Really delete?');">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
             {% else %}
                 <tr>
                     <td colspan="6" style="text-align:center;">
