@@ -52,10 +52,9 @@ Replace this text with notes about what you did to test the UI flow and the outc
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I have made the add new client on the same page as where they're shown and added somewhere to edit client info
 
-*IMPROVED FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="500" height="600" src="https://embed.figma.com/proto/FSPwNSzLv13aoWvZkzDdXf/Client-Tracker-V2?node-id=3-2&p=f&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A2&embed-host=share" allowfullscreen></iframe>
 
 ---
 
@@ -67,6 +66,8 @@ This Figma demo shows the initial layout design for the UI:
 
 *FIGMA PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
 
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="500" height="600" src="https://embed.figma.com/proto/gqJUY3nrOPYKh8m0HM6zL3/Client-Tracker-Prototype-V1?node-id=1-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=share" allowfullscreen></iframe>
+
 ### Testing
 
 Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
@@ -76,8 +77,6 @@ Replace this text with notes about what you did to test the UI flow and the outc
 Replace this text with notes any improvements you made as a result of the testing.
 
 *FIGMA IMPROVED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/gqJUY3nrOPYKh8m0HM6zL3/Client-Tracker-Prototype-V1?node-id=0-1&embed-host=share" allowfullscreen></iframe>
-
 
 ---
 
