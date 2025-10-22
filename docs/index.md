@@ -7,13 +7,16 @@ by Azaria Lee
 
 ## Project Description
 
-Replace this text with your project description and list the key features below
 
-- Feature 1 here
-- Feature 2 here
-- Feature 3 here
-- Feature 4 here
-- Feature 5 here
+- Add and manage clients - stores client names, phone numbers and addresses
+
+- Add and edit jobs - job details such as name, hours worked and billing status (billed or paid)
+
+- View client jobs - see all jobs linked to specific client in one place
+
+- Mark jobs as billed or paid - easily track what has been billed and paid for
+
+- User authentication - only logged in users can manage their own clients
 
 
 ---

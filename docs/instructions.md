@@ -104,7 +104,7 @@ Use complex techniques to develop a database means that, taking into account the
 
 3. You should use appropriate tools and complex techniques to organise and query the data:
    - [ ] **Linking data in related tables** using queries or keys
-   - [ ] Writing **custom queries** to update the data (INSERT / UPDATE / DELETE)
+   - [x] Writing **custom queries** to update the data (INSERT / UPDATE / DELETE)
 
 4. You should use appropriate tools and complex techniques to present the data:
    - [ ] Creating **customised data displays from multiple tables** for web pages
