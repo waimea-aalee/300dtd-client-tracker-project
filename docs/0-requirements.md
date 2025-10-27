@@ -28,8 +28,7 @@ This implication is relevant to my project because everything should be function
 
 ### Impact / Considerations
 
-I will need to consider how everything is working, the project is heavily impacted by this implication because if it is not functioning then no one can use it.
-
+I will need to consider that everything is working, the project is heavily impacted by this implication because if it is not functioning then no one can use it.
 
 
 ## Usability
@@ -45,7 +44,6 @@ This implication is relevant to my project because the website I am creating sho
 I will need to consider who this is made for so it's easy for the end user to work out. The project will be impacted by this implication because if it is confusing to use it would be frustrating to the end user and they would not want to use it.
 
 
-
 ## Aesthetics
 
 The aesthetic implication is about how the website looks. It should be appealing to the end user and follow design conventions. There should also be a good use of the fonts, like the colour and position. The design should be relevant to what's made (e.g if it's a site on bikes there may be a picture of one instead of a cat.) Colours should work together to create a pleasing effect. Certain elements should be grouped or seperated depending on whether they should be linked or not.
@@ -59,7 +57,6 @@ This implication is relevant to my project because the aesthetics of the website
 I will need to think about correctly grouping elements and making the site look appealing to the end user. This impacts it by making a layout less confusing for an end user so they will like it and if it's appealing they'll enjoy using it.
 
 
-
 ## End-user
 
 This implication is connected to the specific needs of the end user(s). The needs could be about age, education, interests, etc. It should be appealing to the correct  people.
@@ -71,7 +68,6 @@ This implication is relevant to this project because I am targeting specific use
 ### Impact / Considerations
 
 I will need to consider getting regular feedback from my end user, this implication impacts the project because if I didn't get feedback about what the end user wants, they most likely will not use it as it doesn't fit their needs.
-
 
 
 ## Privacy

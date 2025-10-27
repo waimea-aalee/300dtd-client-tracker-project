@@ -2,27 +2,27 @@
 
 ## Addressing Relevant Implications
 
-### NAME OF IMPLICATION 1
+### Functionality
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
-
-
-### NAME OF IMPLICATION 2
-
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+I tested my app after adding every new feature to make sure everything is working correctly. This was stuff such as checking jobs and client info can be added, edited and deleted etc.
 
 
-### NAME OF IMPLICATION 3
+### Usability
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
-
-
-### NAME OF IMPLICATION 4
-
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+I have made sure the app is simple and easy to use for my end user. The buttons are obvious and clear so it's easy to know what they do, I also tested every link and button to make sure everything goes to the right place
 
 
-### NAME OF IMPLICATION 5
+### Aesthetics
+
+I tried to make the layout the least confusing as possible by grouping certain elements together and keeping the pages consistent, minimal and easy to look at
+
+
+### End-user
+
+I designed the app with my end user in mind
+
+
+### Privacy
 
 Replace this text with notes about what you did during the project to address the implication - design features, etc.
 
