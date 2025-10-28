@@ -19,12 +19,12 @@ I tried to make the layout the least confusing as possible by grouping certain e
 
 ### End-user
 
-I designed the app with my end user in mind
+I designed the app with my end user in mind, which is specifically for a builder. I made sure it's easy to use for them and has the necessary features, such as the clients, jobs and whether it's been billed and paid for
 
 
 ### Privacy
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+I made sure all the client information such as addresses and phone numbers remain private
 
 
 ---
