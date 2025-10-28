@@ -24,7 +24,7 @@ I designed the app with my end user in mind, which is specifically for a builder
 
 ### Privacy
 
-I made sure all the client information such as addresses and phone numbers remain private
+I made sure all the client information such as addresses and phone numbers remain private by only letting logged in users view and edit their own data to ensure privacy
 
 
 ---
@@ -36,4 +36,6 @@ Replace these words with a brief review of how the project went in terms of:
 - What didn't go so well?
 - How did the testing/trialling impact the final system?
 - What would you do differently if you could?
+
+Overall I think the project went well. All the features I added work how I intended to and the data displays correctly. Testing each feature as  I added them helped fixed the problems quickly and easier. Something that didn't go so well was getting some of the routes to work at first, I needed to do a lot of testing to figure out the problems which helped me understand SQL a bit better. Trialling and testing had significant difference because I could see what needed to be improved and tweaked. Something I'd do differently if I could, I'd spend more time on the layout and design and maybe add extra feature like sorting client names to make them easier to find.
 
