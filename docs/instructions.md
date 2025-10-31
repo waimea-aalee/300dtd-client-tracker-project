@@ -91,7 +91,7 @@ Use complex techniques to develop a database means that, taking into account the
 1. You must first define the purpose of your system and the end-users' needs:
    - [x] Define the **purpose of the system** that uses the database
    - [x] Describe the **needs of the end-users**
-   - [ ] Define the **key functionality** of the proposed system
+   - [x] Define the **key functionality** of the proposed system
 
 2. You need to design the structure of the database:
    - [x] **Tables** - at least two that are linked by a relationship
@@ -116,10 +116,10 @@ Use complex techniques to develop a database means that, taking into account the
    - [ ] Show that any input user data **updates the database as expected**
 
 6. You need to explain and address relevant implications:
-   - [ ] Identify the **implications most relevant** to your project
-   - [ ] Explain **what the implications mean** and **why each is relevant** to your project
-   - [ ] Explain **how each implication will impact your specific project** (considerations / choices / designs)
-   - [ ] At the end of your project, you need to **explain what you did in your project to address each implication**
+   - [x] Identify the **implications most relevant** to your project
+   - [x] Explain **what the implications mean** and **why each is relevant** to your project
+   - [x] Explain **how each implication will impact your specific project** (considerations / choices / designs)
+   - [x] At the end of your project, you need to **explain what you did in your project to address each implication**
 
 *Note: You must satisfy **all** of the criteria above to pass*
 

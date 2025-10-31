@@ -20,21 +20,28 @@ This is the initial design for the database, there's 3 linked tables; users so p
 
 ### Required Data Input
 
-The end user will input data about the clients and the jobs that are in progress once they have created an account and logged in. There is a checkbox to tick whether the client has been billed for a job and if it has been paid for.
+The end user will input data about the clients and the jobs that are in progress once they have created an account and are logged in. This includes: Clients: name, phone and address
+                                  Jobs: Name, hours worked, billed and paid status (check boxes)
+All inputs are stored in the database. Only logged in users can view their own data
 
 ### Required Data Output
 
 The system will output in multiple different ways.
-- A list of the clients
-- A list of jobs for the clients
-- Details of job and clients (e.g. client phone number)
+- Client List: Shows all clients for the logged-in user
+- Job List: Shows all jobs for a specific client
+- Job Details: Includes job name, hours worked, billing status, paid status, and client contact info
 
 ### Required Data Processing
 
+The system processes the input data to produce the outputs
 
+- Adding Data: When a user adds a client or job, an INSERT query adds the information to the clients or jobs table.
+- Editing Data: When a user edits client or job info, an UPDATE query changes the existing record.
+- Deleting Data: When a user deletes a client or job, a DELETE query removes the record from the database.
+- Displaying Data: The system uses SELECT queries, often with a JOIN between clients and jobs, to show only the logged-in user’s data.
+- Checkboxes for billed/paid: Stored as Boolean values and used to filter or mark jobs as billed/paid.
 
-Replace this text with a description of how the data will be processed to achieve the desired output(s) - any processes / formulae?
-
+This makes sure that all inputs are safely stored, updated, and displayed correctly according to the user’s actions.
 
 ---
 

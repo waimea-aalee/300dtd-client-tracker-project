@@ -10,8 +10,7 @@ My step dad is my end-user and I will be talking to during the project. He would
 
 ## Proposed Solution
 
-Replace this text with a brief statement about the system that you intend to create, including the key functionality it should have.
-I intend to create a system that shows clients and the jobs 
+I intend to create an app that allows my end-user to manage clients and jobs efficiently. The system will let the user: add, edit, and delete clients and jobs; mark jobs as billed or paid using checkboxes; view client and job details in a clear and simple layout; and have secure log in to ensure only their data is accessible. The key functionality focuses on making it easy to track work done, manage billing, and maintain client records.
 
 
 ---
