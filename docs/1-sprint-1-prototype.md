@@ -78,32 +78,31 @@ I tested the prototype by clicking all the buttons through every screen in Figma
 
 The add new clients is on the home page and I added an edit page so information doesn't have to be deleted and added as a new entry
 
-*FIGMA IMPROVED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="500" height="600" src="https://embed.figma.com/proto/yQ0tczpGE5WOXe24VFk46A/Client-Tracker-Prototype-V2-Colour?node-id=1-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=share" allowfullscreen></iframe>
 
 ---
 
 ## Refined UI Prototype
 
-Having established the layout of the UI screens, the prototype was refined visually, in terms of colour, fonts, etc.
+I only coloured the buttons with a dark blue, and white text for contrast to make it easier for my end user. I did not add too much colour to make it brighter and easier to read. I wanted it to be simple and proffessional so I left the default font to make it easy to read.
 
 This Figma demo shows the UI with refinements applied:
 
-*FIGMA REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="500" height="600" src="https://embed.figma.com/proto/Jhz7mOPhsZBSu9QH9oTuCK/Client-Tracker-Prototype-V1-Colour?node-id=1-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=share" allowfullscreen></iframe>
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+For testing I checked all the buttons are working and navigating to the correct place and it is understandable
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I added back in the edit page because I realized I missed it in the last version and added colour to those pages too
 
-*FIGMA IMPROVED REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="500" height="600" src="https://embed.figma.com/proto/yQ0tczpGE5WOXe24VFk46A/Client-Tracker-Prototype-V2-Colour?node-id=1-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=share" allowfullscreen></iframe>
 
 
 ---
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
-
+This sprint has moved the project forward by helping how to start and what to do, by starting on Figma it helps give an idea on what needs to be done and what functions need to be added before I start coding the app, it saves a lot of time. Some challenges were remembering the necessary pages, such as the edit page and making sure the 'flow' was clear. Testing let me identify and fix any problems I had. If I had more time I would've spent more time refining the design, by styling and adding more colour to enchance usability and look more visually appealing
