@@ -222,7 +222,14 @@ def job_info(client_id):
             result = client.execute(sql, params)
             jobs = result.rows
 
-            client_name = jobs[0]["client_name"]
+            if not jobs:
+                # Get client name, even if job doesn't exist
+                sql_name =  "SELECT name FROM clients WHERE id = ? AND user_id = ?;"
+                result_name = client.execute(sql_name, [client_id, user_id])
+                client_row = result_name.rows[0] if result_name.rows else None
+                client_name = client_row["name"] if client_row else "Unknown Client"
+            else:
+                client_name = jobs[0]["client_name"]
 
         # Show the info on correct page
         return render_template("pages/job-info.jinja", jobs=jobs, client_id=client_id, client_name=client_name)

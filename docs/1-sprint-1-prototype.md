@@ -48,11 +48,15 @@ This Figma demo shows the initial design for the UI 'flow':
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+I talked to my end user and they gave a bit of feedback
+
+> It'd be good if being able to add clients and jobs was on the page with the info
+
+> How can I edit information?
 
 ### Changes / Improvements
 
-I have made the add new client on the same page as where they're shown and added somewhere to edit client info
+I took the feedback and I have made the add new client on the same page as where they're shown and added somewhere to edit client info
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="500" height="600" src="https://embed.figma.com/proto/FSPwNSzLv13aoWvZkzDdXf/Client-Tracker-V2?node-id=3-2&p=f&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A2&embed-host=share" allowfullscreen></iframe>
 
@@ -68,11 +72,11 @@ This Figma demo shows the initial layout design for the UI:
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+I tested the prototype by clicking all the buttons through every screen in Figma to make sure everything works as expected but the adding clients and jobs felt like it should be easier and quicker to get to
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+The add new clients is on the home page and I added an edit page so information doesn't have to be deleted and added as a new entry
 
 *FIGMA IMPROVED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
 
